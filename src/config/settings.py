@@ -37,8 +37,25 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    "rest_framework",
+    "drf_spectacular",
+
     "home"
 ]
+
+# use schemas of spectacular
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Task API",
+    "DESCRIPTION": "Simple CRUD API for managing tasks",
+    "VERSION": "1.0.0",
+    # controls whether the OpenAPI schema endpoint appear in api
+    "SERVE_INCLUDE_SCHEMA": False,
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
